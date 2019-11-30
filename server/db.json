@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "itemname": "Fruits",
+      "whentobuy": "Today"
+    },
+    {
+      "id": 2,
+      "itemname": "Bread",
+      "whentobuy": "Tomorrow"
+    },
+    {
+      "itemname": "test",
+      "whentobuy": "test",
+      "id": 3
+    },
+    {
+      "itemname": "test",
+      "whentobuy": "test",
+      "id": 4
+    },
+    {
+      "itemname": "test",
+      "whentobuy": "test",
+      "id": 5
+    },
+    {
+      "itemname": "test",
+      "whentobuy": "test",
+      "id": 6
+    }
+  ]
+}
