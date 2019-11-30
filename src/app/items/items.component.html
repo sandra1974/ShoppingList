@@ -1,0 +1,42 @@
+  	<div style="text-align:center">
+	<form>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon">
+        <i class="glyphicon glyphicon-search"></i>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        name="search"
+        placeholder="Type to search..."
+        [(ngModel)]="search"
+      />
+    </div>
+  </div>
+</form>
+</div>
+<mat-list>
+  <span *ngIf="(items.length == 0)">
+      <h3 mat-subheader>0 items found on your list</h3>
+  </span>
+  <span *ngIf="(items.length > 0)">
+      <h3 mat-subheader>You have ({{items.length}})<span *ngIf="(items.length > 0)  "> </span> items in your list.</h3>
+      <mat-list-item *ngFor="let item of items   | paginate: { itemsPerPage: 5, currentPage: page }  |  arrayFilter:search; let i = index  ">
+        <mat-icon mat-list-icon>watch_later</mat-icon>
+        <h4 mat-line   >{{item.itemname}}</h4>
+        <p mat-line  > {{item.whentobuy}} </p>
+        <span style="position:relative; right: 35x">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon mat-list-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button (click)="openEditDialog(item.id)" mat-menu-item>Edit</button>
+            <button (click)="deleteItem(item.id)" mat-menu-item>Delete</button>
+          </mat-menu>
+        </span>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+  </span>
+</mat-list>
+ <pagination-controls (pageChange)="page = $event"></pagination-controls>
